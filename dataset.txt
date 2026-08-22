@@ -1,0 +1,355 @@
+CCSW 325 - Software Construction
+Optimal Dataset for Identifier Naming Study
+20 Java Methods with Tiered Complexity
+
+===============================================
+TIER 1: SIMPLE (Single Variable Methods)
+===============================================
+
+C01 - Check Even Number
+Version A (Unclear):
+public boolean f(int n) {
+    return n % 2 == 0;
+}
+Version B (Meaningful):
+public boolean isEven(int number) {
+    return number % 2 == 0;
+}
+
+--------------------------------------
+
+C02 - Calculate Square
+Version A (Unclear):
+public int f(int x) {
+    return x * x;
+}
+Version B (Meaningful):
+public int calculateSquare(int value) {
+    return value * value;
+}
+
+--------------------------------------
+
+C03 - Convert Celsius to Fahrenheit
+Version A (Unclear):
+public double f(double c) {
+    return (c * 9/5) + 32;
+}
+Version B (Meaningful):
+public double convertToFahrenheit(double celsius) {
+    return (celsius * 9.0/5.0) + 32.0;
+}
+
+--------------------------------------
+
+C04 - Check Password Length
+Version A (Unclear):
+public boolean f(String p) {
+    return p.length() >= 8;
+}
+Version B (Meaningful):
+public boolean isValidPassword(String password) {
+    return password.length() >= 8;
+}
+
+--------------------------------------
+
+C05 - Calculate Grade
+Version A (Unclear):
+public String f(int m) {
+    if(m >= 90) return "A";
+    else if(m >= 80) return "B";
+    else return "C";
+}
+Version B (Meaningful):
+public String calculateGrade(int mark) {
+    if(mark >= 90) return "A";
+    else if(mark >= 80) return "B";
+    else return "C";
+}
+
+===============================================
+TIER 2: MEDIUM (Array/String Processing)
+===============================================
+
+C06 - Find Maximum in Array
+Version A (Unclear):
+public int f(int[] a) {
+    int m = a[0];
+    for(int i = 1; i < a.length; i++) {
+        if(a[i] > m) m = a[i];
+    }
+    return m;
+}
+Version B (Meaningful):
+public int findMax(int[] numbers) {
+    int maxValue = numbers[0];
+    for(int index = 1; index < numbers.length; index++) {
+        if(numbers[index] > maxValue) maxValue = numbers[index];
+    }
+    return maxValue;
+}
+
+--------------------------------------
+
+C07 - Calculate Average
+Version A (Unclear):
+public double f(int[] a) {
+    int s = 0;
+    for(int i = 0; i < a.length; i++) s += a[i];
+    return (double)s / a.length;
+}
+Version B (Meaningful):
+public double calculateAverage(int[] grades) {
+    int total = 0;
+    for(int index = 0; index < grades.length; index++) total += grades[index];
+    return (double) total / grades.length;
+}
+
+--------------------------------------
+
+C08 - Count Positive Numbers
+Version A (Unclear):
+public int f(int[] a) {
+    int c = 0;
+    for(int i = 0; i < a.length; i++) if(a[i] > 0) c++;
+    return c;
+}
+Version B (Meaningful):
+public int countPositive(int[] numbers) {
+    int positiveCount = 0;
+    for(int index = 0; index < numbers.length; index++) if(numbers[index] > 0) positiveCount++;
+    return positiveCount;
+}
+
+--------------------------------------
+
+C09 - Linear Search
+Version A (Unclear):
+public int f(int[] a, int x) {
+    for(int i = 0; i < a.length; i++) {
+        if(a[i] == x) return i;
+    }
+    return -1;
+}
+Version B (Meaningful):
+public int linearSearch(int[] numbers, int target) {
+    for(int index = 0; index < numbers.length; index++) {
+        if(numbers[index] == target) return index;
+    }
+    return -1;
+}
+
+--------------------------------------
+
+C10 - Reverse String
+Version A (Unclear):
+public String f(String s) {
+    String r = "";
+    for(int i = s.length()-1; i >= 0; i--) r += s.charAt(i);
+    return r;
+}
+Version B (Meaningful):
+public String reverseString(String inputText) {
+    String reversedText = "";
+    for(int index = inputText.length()-1; index >= 0; index--) reversedText += inputText.charAt(index);
+    return reversedText;
+}
+
+--------------------------------------
+
+C11 - Check Palindrome
+Version A (Unclear):
+public boolean f(String s) {
+    int i = 0, j = s.length()-1;
+    while(i < j) {
+        if(s.charAt(i) != s.charAt(j)) return false;
+        i++; j--;
+    }
+    return true;
+}
+Version B (Meaningful):
+public boolean isPalindrome(String word) {
+    int leftIndex = 0, rightIndex = word.length()-1;
+    while(leftIndex < rightIndex) {
+        if(word.charAt(leftIndex) != word.charAt(rightIndex)) return false;
+        leftIndex++; rightIndex--;
+    }
+    return true;
+}
+
+--------------------------------------
+
+C12 - Count Vowels
+Version A (Unclear):
+public int f(String s) {
+    int c = 0;
+    for(int i = 0; i < s.length(); i++) {
+        char x = s.charAt(i);
+        if("aeiouAEIOU".indexOf(x) != -1) c++;
+    }
+    return c;
+}
+Version B (Meaningful):
+public int countVowels(String text) {
+    int vowelCount = 0;
+    for(int index = 0; index < text.length(); index++) {
+        char character = text.charAt(index);
+        if("aeiouAEIOU".indexOf(character) != -1) vowelCount++;
+    }
+    return vowelCount;
+}
+
+===============================================
+TIER 3: COMPLEX (Algorithmic Methods)
+===============================================
+
+C13 - Calculate Factorial
+Version A (Unclear):
+public int f(int n) {
+    int r = 1;
+    for(int i = 1; i <= n; i++) r *= i;
+    return r;
+}
+Version B (Meaningful):
+public int calculateFactorial(int number) {
+    int factorial = 1;
+    for(int counter = 1; counter <= number; counter++) factorial *= counter;
+    return factorial;
+}
+
+--------------------------------------
+
+C14 - Bubble Sort
+Version A (Unclear):
+public void f(int[] a) {
+    for(int i = 0; i < a.length-1; i++)
+        for(int j = 0; j < a.length-i-1; j++)
+            if(a[j] > a[j+1]) {
+                int t = a[j];
+                a[j] = a[j+1];
+                a[j+1] = t;
+            }
+}
+Version B (Meaningful):
+public void bubbleSort(int[] array) {
+    for(int outerIndex = 0; outerIndex < array.length-1; outerIndex++)
+        for(int innerIndex = 0; innerIndex < array.length-outerIndex-1; innerIndex++)
+            if(array[innerIndex] > array[innerIndex+1]) {
+                int temp = array[innerIndex];
+                array[innerIndex] = array[innerIndex+1];
+                array[innerIndex+1] = temp;
+            }
+}
+
+--------------------------------------
+
+C15 - Check Prime Number
+Version A (Unclear):
+public boolean f(int n) {
+    if(n <= 1) return false;
+    for(int i = 2; i < n; i++) if(n % i == 0) return false;
+    return true;
+}
+Version B (Meaningful):
+public boolean isPrime(int number) {
+    if(number <= 1) return false;
+    for(int divisor = 2; divisor < number; divisor++) if(number % divisor == 0) return false;
+    return true;
+}
+
+--------------------------------------
+
+C16 - Binary Search
+Version A (Unclear):
+public int f(int[] a, int t) {
+    int l = 0, r = a.length-1;
+    while(l <= r) {
+        int m = (l+r)/2;
+        if(a[m] == t) return m;
+        if(a[m] < t) l = m+1;
+        else r = m-1;
+    }
+    return -1;
+}
+Version B (Meaningful):
+public int binarySearch(int[] sortedArray, int target) {
+    int left = 0, right = sortedArray.length-1;
+    while(left <= right) {
+        int middle = (left+right)/2;
+        if(sortedArray[middle] == target) return middle;
+        if(sortedArray[middle] < target) left = middle+1;
+        else right = middle-1;
+    }
+    return -1;
+}
+
+--------------------------------------
+
+C17 - Merge Two Sorted Arrays
+Version A (Unclear):
+public int[] f(int[] a, int[] b) {
+    int[] r = new int[a.length+b.length];
+    int i = 0, j = 0, k = 0;
+    while(i < a.length && j < b.length) {
+        if(a[i] < b[j]) r[k++] = a[i++];
+        else r[k++] = b[j++];
+    }
+    while(i < a.length) r[k++] = a[i++];
+    while(j < b.length) r[k++] = b[j++];
+    return r;
+}
+Version B (Meaningful):
+public int[] mergeArrays(int[] firstArray, int[] secondArray) {
+    int[] merged = new int[firstArray.length+secondArray.length];
+    int firstIdx = 0, secondIdx = 0, mergeIdx = 0;
+    while(firstIdx < firstArray.length && secondIdx < secondArray.length) {
+        if(firstArray[firstIdx] < secondArray[secondIdx]) merged[mergeIdx++] = firstArray[firstIdx++];
+        else merged[mergeIdx++] = secondArray[secondIdx++];
+    }
+    while(firstIdx < firstArray.length) merged[mergeIdx++] = firstArray[firstIdx++];
+    while(secondIdx < secondArray.length) merged[mergeIdx++] = secondArray[secondIdx++];
+    return merged;
+}
+
+===============================================
+TIER 4: REAL-WORLD (Domain-Specific Methods)
+===============================================
+
+C18 - Calculate Total Price with Tax
+Version A (Unclear):
+public double f(double p, int q, double t) {
+    return p * q * (1 + t);
+}
+Version B (Meaningful):
+public double calculateTotalWithTax(double price, int quantity, double taxRate) {
+    return price * quantity * (1 + taxRate);
+}
+
+--------------------------------------
+
+C19 - Validate Email Format
+Version A (Unclear):
+public boolean f(String e) {
+    return e.matches("^[A-Za-z0-9+_.-]+@(.+)$");
+}
+Version B (Meaningful):
+public boolean isValidEmail(String emailAddress) {
+    return emailAddress.matches("^[A-Za-z0-9+_.-]+@(.+)$");
+}
+
+--------------------------------------
+
+C20 - Find Longest Word in Array
+Version A (Unclear):
+public String f(String[] a) {
+    String w = a[0];
+    for(int i = 1; i < a.length; i++) if(a[i].length() > w.length()) w = a[i];
+    return w;
+}
+Version B (Meaningful):
+public String findLongestWord(String[] words) {
+    String longestWord = words[0];
+    for(int index = 1; index < words.length; index++) if(words[index].length() > longestWord.length()) longestWord = words[index];
+    return longestWord;
+}
